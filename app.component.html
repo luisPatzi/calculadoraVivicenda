@@ -1,0 +1,89 @@
+<div class="container">
+    <div class="row justify-content-center ">
+    <div class="col-sm-12 col-md-8 col-lg-8 col-xl-8">
+        <div class="card mt-0 shadow p-2 mb-2 bg-white rounded">
+            <div class="card-header">
+                <h4 class="text-center"><span class="fa fa-calculator fa-2x mr-10"></span> CALCULADORA FINANCIERA VIVIENDA </h4>
+                <!-- <p class="text-center">Habilitado únicamente para Asegurados Titulares</p> -->
+                </div>
+                <div class="card-body">
+                    <div class="form-group row">
+                        <label for="username" class="col-md-5
+                        col-form-label text-lg-right">Seleccione Programa:</label>
+                    <div class="col-md-7">
+                        <select [(ngModel)]="opcionSeleccionado" required [(ngModel)]="calculadora.id" (change)="capturar()" class="form-control">
+                              <option *ngFor="let dato of progvivienda ; index as i" value="{{i}}">
+                                {{dato.descripcion}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+            <!--
+                <div class="form-group row">
+                    <label for="username" class="col-md-5
+                        col-form-label text-lg-right">Ingrese Total Ganado (Bs):</label>
+                    <div class="col-md-7">
+                        <input type="number" class="form-control" name="fon" placeholder="Total ganado" id="fon" aria-describedby="sizing-addon1" required [(ngModel)]="calculadora.total_ganado">
+                    </div>
+                </div>
+            -->
+                <div class="form-group row">
+                    <label for="username" class="col-md-5
+                        col-form-label text-lg-right">Liquído Pagable sin Bonos temporales (Bs):</label>
+                    <div class="col-md-7">
+                        <input type="number" class="form-control" name="fon" placeholder="Liquído Pagable" id="fon" aria-describedby="sizing-addon1" required [(ngModel)]="calculadora.liquido_pagable">
+                    </div>
+                </div>
+            <!--
+                <div class="form-group row">
+                    <label for="username" class="col-md-5
+                        col-form-label text-lg-right">Año de Promoción:</label>
+                    <div class="col-md-7">
+                        <input type="number" class="form-control" name="fon" placeholder="Año de Promoción" id="fon" aria-describedby="sizing-addon1" required [(ngModel)]="calculadora.anio_promocion">
+                    </div>
+                </div>
+            -->
+                <div class="form-group row">
+                    <label for="username" class="col-md-5
+                        col-form-label text-lg-right">Monto Solicitado (Sus):</label>
+                    <div class="col-md-7">
+                        <input type="number" class="form-control" name="fon" placeholder="Monto Solicitado:" id="fon" aria-describedby="sizing-addon1" required [(ngModel)]="calculadora.monto_solicitado">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="username" class="col-md-5
+                        col-form-label text-lg-right">Plazo Solicitado (Años):</label>
+                    <div class="col-md-7">
+                        <input type="number" class="form-control" name="fon" placeholder="Plazo Solicitado" id="fon" aria-describedby="sizing-addon1" required [(ngModel)]="calculadora.plazo_solicitado">
+                    </div>
+                    </div>
+                
+                
+                <div class="col-md-12">
+                    <button (click)='calcular()' class="btn btn-success btn-block py-2">CALCULAR</button>
+                </div>
+                    <table class="table">
+                        <thead class="color-table-head">
+                            <tr>
+                            <th scope="col">Monto Maximo en (Sus)</th>
+                            <th scope="col">Tasa Interes (%)</th>
+                            <th scope="col">Plazo (Años)</th>
+                            <th scope="col">Cuota mensual (Sus)</th>
+                            <th scope="col">Cuota mensual (Bs)</th>
+                            </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{calculadora.prestamo | number: '1.2-2'}}</td>
+                            <td>{{calculadora.programa.tasa | number: '1.2-2'}}</td>
+                            <td>{{calculadora.plazo_solicitado | number: '1.0-0'}}</td>
+                            <td>{{calculadora.cuota_mensual | number: '1.2-2' }}</td>
+                              <td>{{calculadora.cuota_mensual * 6.96 | number: '1.2-2'}}</td>
+                            </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
